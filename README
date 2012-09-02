@@ -1,0 +1,34 @@
+NAME
+    shared-env - Maintain shared environment / dotfiles via git
+
+SYNOPSIS
+      cd ~
+	  git checkout git://github.com/cventers/shared-env.git .shared-env
+	  .shared-env/apply
+	  . .bashrc
+
+DESCRIPTION
+    This repository contains an example configuration of a bash, git, vim and
+	screen user, including dotfiles, binaries, and bash and vim plugins.
+
+    Unlike some basic dotfile collections on github, this configuration comes
+	with a simple apply script to quickly symlink relevant dotfiles into
+	place, and to modify .bashrc to ensure it contains an include for the
+	shared-env .bashrc.
+
+	This allows shared-env to integrate with any local system specifics.
+
+	This repository includes the "z" command for easily accessing your
+	favorite directories. You can find that here:
+
+	http://github.com/rupa/z
+
+AUTHOR
+    Chase Venters <chase.venters@chaseventers.com>
+
+COPYRIGHT
+    This is truly trivial and I am releasing it in the public domain.
+
+URL
+    http://github.com/cventers/shared-env
+

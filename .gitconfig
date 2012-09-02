@@ -1,0 +1,11 @@
+[user]
+	name = John Doe
+	email = john@doe.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+	ap = add -p
+	ix = diff --cached
+	s = status --short

@@ -1,0 +1,25 @@
+#!/bin/sh
+
+cd ~
+
+# Swap in some preferences
+ln -sf .shared-env/.gitconfig
+rm -rf .vim
+ln -sf .shared-env/.vim
+ln -sf .shared-env/.vimrc
+ln -sf .shared-env/.screenrc
+
+# Make sure we have a bashrc
+if [ ! -f .bashrc ]
+then
+	touch .bashrc
+fi
+
+# Make sure local bashrc includes shared-env bashrc
+grep -q \\.shared-env/\\.bashrc .bashrc
+if [ $? == 1 ]
+then
+	(echo ". ~/.shared-env/.bashrc"; cat .bashrc) > .bashrc-new
+	mv .bashrc-new .bashrc
+fi
+

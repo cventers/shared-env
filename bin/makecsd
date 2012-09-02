@@ -1,0 +1,31 @@
+#!/usr/bin/perl
+# ========================================================================== #
+# makecsd - Create 78-column C-style comment header                          #
+# Chase Venters <chase.venters@chaseventers.org>                             #
+# ========================================================================== #
+
+my $input = join(' ', @ARGV);
+
+print "\n\n";
+print "/* ======================================================================== */\n";
+
+my $line = "/* ";
+
+$input = " $input ";
+
+# We use 77 equal signs.
+my $len = length($input);
+my $halfLen = int($len / 2);
+my $halfEs = int(73 / 2);
+my $textStart = $halfEs - $halfLen;
+
+$line .= '=' x $textStart;
+$line .= $input;
+$line .= '=' x (78 - length($line) - 3);
+
+print "$line */\n";
+print "/* ======================================================================== */\n";
+print "\n\n";
+
+# ========================================================================== #
+

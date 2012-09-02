@@ -1,0 +1,33 @@
+#!/usr/bin/perl
+# ========================================================================== #
+# makesd - Create 78-column comment headers                                  #
+# Chase Venters <chase.venters@chaseventers.org>                             #
+# ========================================================================== #
+
+my $input = join(' ', @ARGV);
+
+print "\n\n";
+print "# ========================================================================== #\n";
+
+my $line = "# ";
+
+$input = " $input ";
+
+# We use 77 equal signs.
+my $len = length($input);
+my $halfLen = int($len / 2);
+my $halfEs = int(75 / 2);
+my $textStart = $halfEs - $halfLen;
+
+$line .= '=' x $textStart;
+$line .= $input;
+$line .= '=' x (78 - length($line) - 2);
+$line .= ' #';
+
+print "$line\n";
+
+print "# ========================================================================== #\n";
+print "\n\n";
+
+# ========================================================================== #
+
